@@ -7,14 +7,17 @@
 
 import SwiftUI
 import AVFoundation
+import AudioToolbox
 
-// let defaultTime = 5 * 60 // 5 minutes in seconds
-let defaultTime = 30 // shorter period for debugging
+ let DEFAULT_TIME = 5 * 60 // 5 minutes in seconds
+// let DEFAULT_TIME = 5  // shorter period for debugging
+// Use one of the predefined system sound IDs
+let SOUND_ID: SystemSoundID = 1008
 
 struct MeditationView: View {
     private var showRemainingTime = true
     @State private var isMeditationActive = false
-    @State private var remainingTime = defaultTime
+    @State private var remainingTime = DEFAULT_TIME
     @State private var timer: Timer?
     @State private var audioPlayer: AVAudioPlayer?
 
@@ -63,7 +66,14 @@ struct MeditationView: View {
             }
         }
         .padding()
-        .onDisappear(perform: stopMeditation) // Ensure timer and audio stop when view disappears
+        .onAppear {
+            self.playSystemSound() // Just for testing!
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
+        .onDisappear {
+            self.stopMeditation() // Ensure timer and audio stop when view disappears
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
     }
 
     private func startMeditation() {
@@ -79,7 +89,7 @@ struct MeditationView: View {
     }
 
     private func resetTime() {
-        remainingTime = defaultTime
+        remainingTime = DEFAULT_TIME
     }
 
     private func startTimer() {
@@ -105,6 +115,7 @@ struct MeditationView: View {
         }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         } catch {
             print("Audio playback failed: \(error)")
@@ -116,8 +127,12 @@ struct MeditationView: View {
         audioPlayer = nil
     }
 
+    private func playSystemSound() {
+        AudioServicesPlaySystemSound(SOUND_ID)
+    }
+
     private func onMeditationDidFinish() {
-        // TODO: notify the user with system sound that meditation has finished
+        playSystemSound()
         print("Meditation session is over! 🚀")
     }
 }
