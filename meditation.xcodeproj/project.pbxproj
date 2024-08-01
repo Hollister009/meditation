@@ -11,6 +11,11 @@
 		40B6A4752C582EAD00A53020 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6A4742C582EAD00A53020 /* ContentView.swift */; };
 		40B6A4772C582EAF00A53020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B6A4762C582EAF00A53020 /* Assets.xcassets */; };
 		40B6A47A2C582EAF00A53020 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B6A4792C582EAF00A53020 /* Preview Assets.xcassets */; };
+		40B6A4852C597FB200A53020 /* MeditationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6A4842C597FB200A53020 /* MeditationData.swift */; };
+		40B6A4882C59866A00A53020 /* in-the-place-far-away-japanese-koto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40B6A4872C59866A00A53020 /* in-the-place-far-away-japanese-koto.mp3 */; };
+		40B6A48A2C59868B00A53020 /* beach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40B6A4892C59868B00A53020 /* beach.mp3 */; };
+		40B6A48C2C59874300A53020 /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6A48B2C59874300A53020 /* MeditationView.swift */; };
+		40B6A48E2C59877000A53020 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6A48D2C59877000A53020 /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		40B6A4742C582EAD00A53020 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40B6A4762C582EAF00A53020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B6A4792C582EAF00A53020 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		40B6A4842C597FB200A53020 /* MeditationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationData.swift; sourceTree = "<group>"; };
+		40B6A4872C59866A00A53020 /* in-the-place-far-away-japanese-koto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "in-the-place-far-away-japanese-koto.mp3"; sourceTree = "<group>"; };
+		40B6A4892C59868B00A53020 /* beach.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beach.mp3; sourceTree = "<group>"; };
+		40B6A48B2C59874300A53020 /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
+		40B6A48D2C59877000A53020 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,12 @@
 		40B6A4712C582EAD00A53020 /* meditation */ = {
 			isa = PBXGroup;
 			children = (
+				40B6A4862C59864B00A53020 /* music */,
 				40B6A4722C582EAD00A53020 /* meditationApp.swift */,
+				40B6A4842C597FB200A53020 /* MeditationData.swift */,
+				40B6A48B2C59874300A53020 /* MeditationView.swift */,
 				40B6A4742C582EAD00A53020 /* ContentView.swift */,
+				40B6A48D2C59877000A53020 /* SplashScreen.swift */,
 				40B6A4762C582EAF00A53020 /* Assets.xcassets */,
 				40B6A4782C582EAF00A53020 /* Preview Content */,
 			);
@@ -65,6 +79,15 @@
 				40B6A4792C582EAF00A53020 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		40B6A4862C59864B00A53020 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				40B6A4892C59868B00A53020 /* beach.mp3 */,
+				40B6A4872C59866A00A53020 /* in-the-place-far-away-japanese-koto.mp3 */,
+			);
+			path = music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B6A47A2C582EAF00A53020 /* Preview Assets.xcassets in Resources */,
+				40B6A4882C59866A00A53020 /* in-the-place-far-away-japanese-koto.mp3 in Resources */,
+				40B6A48A2C59868B00A53020 /* beach.mp3 in Resources */,
 				40B6A4772C582EAF00A53020 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B6A48E2C59877000A53020 /* SplashScreen.swift in Sources */,
+				40B6A48C2C59874300A53020 /* MeditationView.swift in Sources */,
 				40B6A4752C582EAD00A53020 /* ContentView.swift in Sources */,
+				40B6A4852C597FB200A53020 /* MeditationData.swift in Sources */,
 				40B6A4732C582EAD00A53020 /* meditationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +300,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"meditation/Preview Content\"";
+				DEVELOPMENT_TEAM = 83H9J2LHA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -300,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"meditation/Preview Content\"";
+				DEVELOPMENT_TEAM = 83H9J2LHA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
