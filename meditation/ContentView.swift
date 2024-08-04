@@ -9,27 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            // Background Image
-            Image("sakura_beach_ocean_mountain")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width,
-                       height: UIScreen.main.bounds.height)
-                .clipped()
-                .edgesIgnoringSafeArea(.all)
-            
-            // Gradient Overlay for Glass Effect
-            LinearGradient(
-                gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0.2)]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .edgesIgnoringSafeArea(.all)
-            .blur(radius: 10)
-            
-            MeditationView()
+        NavigationView {
+            List(meditations) { meditation in
+                NavigationLink(destination: MeditationView()) {                    
+                    HStack {
+                        Image(meditation.image)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                            .shadow(radius: 5)
+
+                        Spacer()
+
+                        Text(meditation.title)
+                    }
+                    .padding(.vertical, 5)
+                }
+            }
         }
+        .navigationTitle("Meditations")
     }
 }
 

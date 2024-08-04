@@ -22,52 +22,71 @@ struct MeditationView: View {
     @State private var audioPlayer: AVAudioPlayer?
 
     var body: some View {
-        VStack {            
-            if showRemainingTime {
-                VStack {
-                    Text("Time Remaining:")
-                        .font(.title)
-                        .padding()
-                    Text("\(remainingTime / 60) min \(remainingTime % 60) sec")
-                        .font(.title)
-                        .padding()
-                }
-            }
-            
-            if !isMeditationActive {
-                HStack {
-                    Button(action: startMeditation) {
-                        Text("Start")
+        ZStack {
+            Image("sakura_beach_ocean_mountain")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width,
+                       height: UIScreen.main.bounds.height)
+                .clipped()
+                .edgesIgnoringSafeArea(.all)
+
+            // Gradient Overlay for Glass Effect
+            LinearGradient(
+               gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0.2)]),
+               startPoint: .top,
+               endPoint: .bottom
+            )
+                .edgesIgnoringSafeArea(.all)
+                .blur(radius: 10)
+
+            VStack {
+                if showRemainingTime {
+                    VStack {
+                        Text("Time Remaining:")
                             .font(.title)
                             .padding()
-                            .background(Color.green)
+                        Text("\(remainingTime / 60) min \(remainingTime % 60) sec")
+                            .font(.title)
+                            .padding()
+                    }
+                }
+
+                if !isMeditationActive {
+                    HStack {
+                        Button(action: startMeditation) {
+                            Text("Start")
+                                .font(.title)
+                                .padding()
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+
+                        Button(action: resetTime) {
+                            Text("Reset")
+                                .font(.title)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }   
+                    }
+                } else {
+                    Button(action: stopMeditation) {
+                        Text("Stop Meditation")
+                            .font(.title)
+                            .padding()
+                            .background(Color.red)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-
-                    Button(action: resetTime) {
-                        Text("Reset")
-                            .font(.title)
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }   
                 }
-            } else {
-                Button(action: stopMeditation) {
-                    Text("Stop Meditation")
-                        .font(.title)
-                        .padding()
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            }
+            }            
+            .padding()
         }
-        .padding()
         .onAppear {
-            self.playSystemSound() // Just for testing!
+//            self.playSystemSound() // Just for testing!
             UIApplication.shared.isIdleTimerDisabled = true
         }
         .onDisappear {
