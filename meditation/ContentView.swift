@@ -27,7 +27,7 @@ struct ContentView: View {
                 }
             }
         }
-        .navigationTitle("Meditations")
+        .navigationTitle("Select Meditation")
     }
 }
 
